@@ -49,7 +49,7 @@ export const assets = {
 export const links = {
   linkedin: 'https://www.linkedin.com/in/andrei-acosta-276a3241b/',
   figma: 'https://www.figma.com/@andreiacosta1',
-  github: 'https://github.com/phyacinth',
+  github: 'https://github.com/AndreiAcosta185',
   phone: 'tel:+639288986970',
   email: 'mailto:atsocaandrei185@gmail.com',
   cvFile: '/Andrei-Acosta-CV.pdf',

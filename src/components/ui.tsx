@@ -42,6 +42,30 @@ export function ButtonLink({ href, children, variant = 'butter', widthClass = 'w
   )
 }
 
+/**
+ * Round icon button with a small caption under it. Same colours and hover lift as ButtonLink;
+ * the icon should use `currentColor` so it follows the variant's text colour.
+ */
+const circleVariants = {
+  butter: 'border-white/60 bg-butter text-navy group-hover:border-tangerine group-hover:bg-tangerine group-hover:text-white',
+  outline: 'border-tangerine bg-transparent text-tangerine group-hover:bg-tangerine group-hover:text-white',
+}
+
+export function CircleLink({ href, label, children, variant = 'outline', download }: { href: string; label: string; children: ReactNode; variant?: keyof typeof circleVariants; download?: string }) {
+  return (
+    <a href={href} download={download} {...externalProps(href)} aria-label={label} title={label} className="group flex flex-col items-center gap-2">
+      <span
+        className={`flex size-[56px] items-center justify-center rounded-full border transition-[translate,box-shadow,background-color,color,border-color] duration-200 ease-out group-hover:-translate-y-[2px] group-hover:shadow-[0px_8px_16px_-8px_rgba(0,0,0,0.45)] motion-reduce:group-hover:translate-y-0 ${circleVariants[variant]}`}
+      >
+        {children}
+      </span>
+      <span aria-hidden className="font-dot text-[13px] leading-none tracking-[1px] text-cream">
+        {label}
+      </span>
+    </a>
+  )
+}
+
 /** Cream box with tangerine border: small uppercase label over a value. */
 export function InfoBox({ label, children, className = '' }: { label: string; children: ReactNode; className?: string }) {
   return (

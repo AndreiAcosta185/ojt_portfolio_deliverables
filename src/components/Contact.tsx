@@ -2,7 +2,7 @@ import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties
 import { assets, links } from '../lib/assets'
 import { Stars, VLine } from './Decor'
 import { SectionStars } from './ShootingStars'
-import { ButtonLink } from './ui'
+import { CircleLink } from './ui'
 
 /** Shown as text in the "Contact me?" answer (links.email is the mailto: link). */
 const EMAIL = links.email.replace('mailto:', '')
@@ -28,12 +28,27 @@ const faqs: { question: string; answer: ReactNode; at: [number, number] }[] = [
         >
           {EMAIL}
         </a>
-        <ButtonLink href={links.cvFile} download="Andrei-Acosta-CV.pdf" widthClass="w-[200px]">
-          Download CV
-        </ButtonLink>
-        <ButtonLink href={links.linkedin} variant="outline" widthClass="w-[200px]">
-          View LinkedIn
-        </ButtonLink>
+        <span className="flex items-start justify-center gap-6 pt-1">
+          <CircleLink href={links.cvFile} download="Andrei-Acosta-CV.pdf" label="Download CV" variant="butter">
+            {/* Arrow into a tray */}
+            <svg aria-hidden viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 4v11M7 10l5 5 5-5M5 19h14" />
+            </svg>
+          </CircleLink>
+          <CircleLink href={links.linkedin} label="LinkedIn">
+            <svg aria-hidden viewBox="0 0 24 24" className="size-6" fill="currentColor">
+              <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.6 4.77 6V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z" />
+            </svg>
+          </CircleLink>
+          <CircleLink href={links.github} label="GitHub">
+            <svg aria-hidden viewBox="0 0 16 16" className="size-6" fill="currentColor">
+              <path
+                fillRule="evenodd"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              />
+            </svg>
+          </CircleLink>
+        </span>
       </span>
     ),
   },
